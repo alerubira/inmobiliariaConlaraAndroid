@@ -1,6 +1,7 @@
 package com.principal.inmobiliariaconlaraandroid.inicio;
 
 import android.app.Application;
+import android.hardware.SensorManager;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
