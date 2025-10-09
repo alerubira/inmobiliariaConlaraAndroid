@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.principal.inmobiliariaconlaraandroid.ui.home.HomeFragment"
+        android:name="com.principal.inmobiliariaconlaraandroid.ui.perfil.HomeFragment"
         android:label="@string/perfil"
         tools:layout="@layout/fragment_home" />
 
