@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.principal.inmobiliariaconlaraandroid.clases.Propietario;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -12,6 +13,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public class ApiClient {
@@ -48,12 +51,12 @@ public class ApiClient {
         return sp.getString("token",null);
     }
         public interface InmmobiliariaSetvice{
-
             @FormUrlEncoded
             @POST("api/propietarios/login")
             Call<String> login(@Field("Usuario") String u, @Field("Clave") String c);
 
-
+            @GET("api/propietarios")
+            Call<Propietario>obtenerPropietario(@Header("Authorization")String cadena);
 
         }
 }
