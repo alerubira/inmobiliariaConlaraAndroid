@@ -51,7 +51,7 @@ public class InicioActivityViewModel extends AndroidViewModel {
 
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
-                      mNoLogueado.postValue("Error intrerno del servidor"+t.getMessage());
+                      mNoLogueado.postValue("Error intrerno del servidor: "+t.getMessage());
                 }
             });
             }

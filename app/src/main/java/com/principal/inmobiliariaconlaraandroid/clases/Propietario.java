@@ -1,6 +1,8 @@
 package com.principal.inmobiliariaconlaraandroid.clases;
 
-public class Propietario {
+import java.io.Serializable;
+
+public class Propietario implements Serializable {
     private int idPropietario;
     private String dni;
     private String nombre;
@@ -9,7 +11,7 @@ public class Propietario {
     private String clave;
     private String telefono;
 
-    public Propietario(int idPropietario,String dni,String nombre,String apellido,String email,String clave,String telefono) {
+    public Propietario (int idPropietario,String dni,String nombre,String apellido,String email,String clave,String telefono) {
         this.idPropietario = idPropietario;
         this.dni=dni;
         this.nombre=nombre;
@@ -19,6 +21,9 @@ public class Propietario {
         this.telefono=telefono;
 
 
+    }
+
+    public Propietario() {
     }
 
     public int getIdPropietario() {

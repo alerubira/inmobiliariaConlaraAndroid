@@ -22,8 +22,7 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -44,7 +43,50 @@ public class HomeFragment extends Fragment {
         homeViewModel.getMPropietario().observe(getViewLifecycleOwner(), new Observer<Propietario>() {
             @Override
             public void onChanged(Propietario propietario) {
-                binding.tvApellido.setText(propietario.getApellido());
+                binding.edtApellido.setText(propietario.getApellido());
+                binding.edtDni.setText(propietario.getDni());
+                binding.edtIdPropietario.setText(propietario.getIdPropietario()+"");
+                binding.edtNombre.setText(propietario.getNombre());
+                binding.edtEmail.setText(propietario.getEmail());
+                binding.edtTelefono.setText(propietario.getTelefono());
+            }
+        });
+        homeViewModel.getMTextBtn().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                binding.btnEditar.setText(s);
+            }
+        });
+        homeViewModel.getmEstadosEdt().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if(aBoolean){
+                    binding.edtDni.setEnabled(true);
+                    binding.edtTelefono.setEnabled(true);
+                    binding.edtEmail.setEnabled(true);
+                    binding.edtNombre.setEnabled(true);
+                    binding.edtApellido.setEnabled(true);
+                }else{
+                    binding.edtDni.setEnabled(false);
+                    binding.edtTelefono.setEnabled(false);
+                    binding.edtEmail.setEnabled(false);
+                    binding.edtNombre.setEnabled(false);
+                    binding.edtApellido.setEnabled(false);
+                }
+
+            }
+        });
+        binding.btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String btn=binding.btnEditar.getText().toString();
+                //int idPropietario=binding.edtIdPropietario.getId();
+                String dni=binding.edtDni.getText().toString();
+                String apellido=binding.edtApellido.getText().toString();
+                String nombre=binding.edtNombre.getText().toString();
+                String email=binding.edtEmail.getText().toString();
+                String telefono=binding.edtTelefono.getText().toString();
+                homeViewModel.editar(btn,dni,apellido,nombre,email,telefono);
             }
         });
         homeViewModel.obtenerPropietario();

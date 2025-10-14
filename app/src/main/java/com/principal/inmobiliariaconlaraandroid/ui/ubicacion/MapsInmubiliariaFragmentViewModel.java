@@ -50,12 +50,13 @@ public class MapsInmubiliariaFragmentViewModel extends AndroidViewModel {
             marcador.title("Inmobiliaria");
 
             googleMap.addMarker(marcador);
-            googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+            googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            googleMap.setBuildingsEnabled(false);
             CameraPosition cam = new CameraPosition.Builder()
                     .target(ubi)
-                    .zoom(30)
-                    .bearing(45)
-                    .tilt(15)
+                    .zoom(17)
+                    .bearing(0)
+                    .tilt(0)
                     .build();
             CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cam);
             googleMap.animateCamera(cameraUpdate);
