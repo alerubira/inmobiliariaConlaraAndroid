@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.principal.inmobiliariaconlaraandroid.clases.Propietario;
 import com.principal.inmobiliariaconlaraandroid.databinding.FragmentHomeBinding;
-import com.principal.inmobiliariaconlaraandroid.inicio.InicioActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -26,7 +24,7 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        homeViewModel.getMNoEncontrado().observe(getViewLifecycleOwner(), new Observer<String>() {
+        homeViewModel.getMInforme().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(String s) {
                 new AlertDialog.Builder(requireContext())

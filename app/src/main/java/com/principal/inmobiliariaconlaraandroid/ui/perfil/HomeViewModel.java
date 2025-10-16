@@ -1,7 +1,5 @@
 package com.principal.inmobiliariaconlaraandroid.ui.perfil;
 
-import static androidx.lifecycle.AndroidViewModel_androidKt.getApplication;
-
 import android.app.Application;
 import android.content.Context;
 
@@ -9,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.principal.inmobiliariaconlaraandroid.clases.Propietario;
 import com.principal.inmobiliariaconlaraandroid.request.ApiClient;
@@ -22,7 +19,7 @@ public class HomeViewModel extends AndroidViewModel {
 
     private  MutableLiveData<String> mTextbtn=new MutableLiveData<>();
      private MutableLiveData<Propietario> mPropietario=new MutableLiveData<>();
-     private MutableLiveData<String> mNoEncontrado=new MutableLiveData<>();
+     private MutableLiveData<String> mInforme =new MutableLiveData<>();
      private MutableLiveData<Boolean>mEstadosEdt=new MutableLiveData<Boolean>();
     private Context context;
     private Propietario propietario;
@@ -38,8 +35,8 @@ public class HomeViewModel extends AndroidViewModel {
   public LiveData<Propietario> getMPropietario(){
       return mPropietario;
   }
-    public LiveData<String> getMNoEncontrado(){
-        return mNoEncontrado;
+    public LiveData<String> getMInforme(){
+        return mInforme;
     }
     public LiveData<String>getMTextBtn(){
         return mTextbtn;
@@ -60,13 +57,13 @@ public class HomeViewModel extends AndroidViewModel {
                      propietario=response.body();
                     mPropietario.postValue(propietario);
                 }else{
-                   mNoEncontrado.postValue("No Se encontro Propietario");
+                   mInforme.postValue("No Se encontro Propietario");
                 }
             }
 
             @Override
             public void onFailure(Call<Propietario> call, Throwable t) {
-               mNoEncontrado.postValue("Error del servidor al buscar propietario: "+t.getMessage());
+               mInforme.postValue("Error del servidor al buscar propietario: "+t.getMessage());
             }
         });
     }
@@ -81,7 +78,7 @@ public class HomeViewModel extends AndroidViewModel {
               mEstadosEdt.postValue(false);
 
           }else{
-              mNoEncontrado.setValue("Algo esta mal con algun campo modificado "+mensage);
+              mInforme.setValue("Algo esta mal con algun campo modificado "+mensage);
           }
 
       }
@@ -134,16 +131,16 @@ public class HomeViewModel extends AndroidViewModel {
                     if (response.isSuccessful()) {
                         propietario = response.body();
                         mPropietario.postValue(propietario);
-                        mNoEncontrado.postValue("Propietario modificado con exito");
+                        mInforme.postValue("Propietario modificado con exito");
                     } else {
-                        mNoEncontrado.postValue("Error almodificar el Propietario" + response.message());
+                        mInforme.postValue("Error almodificar el Propietario" + response.message());
                     }
 
                 }
 
                 @Override
                 public void onFailure(Call<Propietario> call, Throwable t) {
-                        mNoEncontrado.postValue("Error del servidor : "+t.getMessage());
+                        mInforme.postValue("Error del servidor : "+t.getMessage());
                 }
             });
         }

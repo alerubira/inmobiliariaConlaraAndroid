@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.principal.inmobiliariaconlaraandroid.ui.gallery.GalleryFragment"
+        android:name="com.principal.inmobiliariaconlaraandroid.ui.inmuebles.GalleryFragment"
         android:label="@string/inmuebles"
         tools:layout="@layout/fragment_gallery" />
 

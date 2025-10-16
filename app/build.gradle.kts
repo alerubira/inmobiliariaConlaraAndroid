@@ -51,6 +51,8 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.adapter.scala)
     implementation(libs.converter.scalars)
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
