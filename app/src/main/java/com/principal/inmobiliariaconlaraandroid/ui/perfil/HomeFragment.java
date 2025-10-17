@@ -10,7 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 
+import com.principal.inmobiliariaconlaraandroid.R;
 import com.principal.inmobiliariaconlaraandroid.clases.Propietario;
 import com.principal.inmobiliariaconlaraandroid.databinding.FragmentHomeBinding;
 
@@ -85,6 +87,15 @@ public class HomeFragment extends Fragment {
                 String email=binding.edtEmail.getText().toString();
                 String telefono=binding.edtTelefono.getText().toString();
                 homeViewModel.editar(btn,dni,apellido,nombre,email,telefono);
+            }
+        });
+        binding.fabCambiarClave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle=new Bundle();
+                NavHostFragment.findNavController(HomeFragment.this)
+                        .navigate(R.id.cambiarClaveFragment,bundle);
+
             }
         });
         homeViewModel.obtenerPropietario();

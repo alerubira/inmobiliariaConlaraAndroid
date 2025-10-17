@@ -16,4 +16,5 @@
     <string name="inquilinos">Inquilinos</string>
     <string name="contratos">Contratos</string>
     <string name="logout">Logout</string>
+    <string name="cambiar_contrasena">Cambiar Contraseña</string>
 </resources>

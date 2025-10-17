@@ -68,8 +68,11 @@ public class ApiClient {
             
             @GET("api/Inmuebles")
             Call<List<Inmueble>> obtenerInmuebles(@Header("Authorization")String token);
+
             @FormUrlEncoded
             @PUT("api/Propietarios/changePassword")
-            Call<Void>cambiarClave(@Header("Authorization")String token,@Field("currentPassword")String claveVieja,@Field("newPassword")String claveNueva);
+            Call<Void>cambiarClave(@Header("Authorization")String token,
+                                   @Field("currentPassword")String claveVieja,
+                                   @Field("newPassword")String claveNueva);
         }
 }

@@ -9,7 +9,11 @@
         android:id="@+id/nav_home"
         android:name="com.principal.inmobiliariaconlaraandroid.ui.perfil.HomeFragment"
         android:label="@string/perfil"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_cambiarClaveFragment"
+            app:destination="@id/cambiarClaveFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
@@ -37,4 +41,13 @@
         android:name="com.principal.inmobiliariaconlaraandroid.ui.logout.LogoutFragment"
         android:label="@string/logout"
         tools:layout="@layout/fragment_logout" />
+    <fragment
+        android:id="@+id/cambiarClaveFragment"
+        android:name="com.principal.inmobiliariaconlaraandroid.ui.perfil.CambiarClaveFragment"
+        android:label="Perfil_Cambiar Clave"
+        tools:layout="@layout/fragment_cambiar_clave" >
+        <action
+            android:id="@+id/action_cambiarClaveFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>

@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="#88121449"
+        android:background="#88121435"
         app:cardBackgroundColor="#88121449 "
         app:cardCornerRadius="15dp"
         app:cardElevation="10dp"
-        app:contentPadding="15dp">
+        app:contentPadding="10dp">
 
         <TextView
             android:id="@+id/tvDireccion"
