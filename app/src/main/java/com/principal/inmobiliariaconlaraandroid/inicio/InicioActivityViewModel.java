@@ -30,30 +30,47 @@ public class InicioActivityViewModel extends AndroidViewModel {
             return mNoLogueado;
         }
         public void loguear(String mail,String clave){
-            ApiClient.InmmobiliariaSetvice api = ApiClient.getApiInmobiliaria();
+            if (verificarCampos(mail, clave)) {
+                loguearse(mail,clave);
 
-            Call<String> llamada = api.login(mail, clave);
-
-            llamada.enqueue(new Callback<String>() {
-
-                @Override
-                public void onResponse(Call<String> call, Response<String> response) {
-                    if (response.isSuccessful()) {
-                        String token= response.body();
-                        ApiClient.guardarToken(context, token);
-                       mLogueado.postValue("logueado");
-                    } else{
-
-                        mNoLogueado.postValue("Usuario y/o contraseña Incorrecta; reintente");
-
-                      }
-                }
-
-                @Override
-                public void onFailure(Call<String> call, Throwable t) {
-                      mNoLogueado.postValue("Error intrerno del servidor: "+t.getMessage());
-                }
-            });
+            }else{
+                mNoLogueado.setValue("falta el usuario o la clave");
             }
+
+            }
+       private boolean verificarCampos(String usuario,String clave){
+        boolean bandera=true;
+        if(usuario==null||usuario.isEmpty()||clave==null||clave.isEmpty()){
+            bandera=false;
+
+        }
+        return bandera;
+       }
+       private void loguearse(String mail,String clave){
+           ApiClient.InmmobiliariaSetvice api = ApiClient.getApiInmobiliaria();
+
+           Call<String> llamada = api.login(mail, clave);
+
+           llamada.enqueue(new Callback<String>() {
+
+               @Override
+               public void onResponse(Call<String> call, Response<String> response) {
+                   if (response.isSuccessful()) {
+                       String token= response.body();
+                       ApiClient.guardarToken(context, token);
+                       mLogueado.postValue("logueado");
+                   } else{
+
+                       mNoLogueado.postValue("Usuario y/o contraseña Incorrecta; reintente");
+
+                   }
+               }
+
+               @Override
+               public void onFailure(Call<String> call, Throwable t) {
+                   mNoLogueado.postValue("Error intrerno del servidor: "+t.getMessage());
+               }
+           });
+       }
     }
 

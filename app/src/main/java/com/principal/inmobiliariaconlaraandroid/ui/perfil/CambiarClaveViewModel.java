@@ -35,8 +35,8 @@ public class CambiarClaveViewModel extends AndroidViewModel {
         return mMensageError;
     }
     public void verificarIgualdad(String claveA,String claveNuevaA,String claveNuevaRepetida){
-        if(claveNuevaA==null||claveNuevaA.isEmpty()){
-            mMensageError.setValue("La clave nueva debe contener parametros");
+        if(claveNuevaA==null||claveNuevaA.isEmpty()||claveA==null||claveA.isEmpty()){
+            mMensageError.setValue("La clave o la nueva debe contener parametros");
         }else{
             if (claveNuevaA.equals(claveNuevaRepetida)) {
                 mMensage.setValue("Seguro desea cambiar la clave??");
