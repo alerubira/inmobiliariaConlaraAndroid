@@ -23,6 +23,10 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
 public class ApiClient {
+    // IP de tu PC + puerto donde corre la API HTTP
+    //public static final String URLBASE = "http://192.168.1.108:5164/";
+
+
     public static final String URLBASE = "https://inmobiliariaulp-amb5hwfqaraweyga.canadacentral-01.azurewebsites.net/";//virtual
 
 
@@ -74,5 +78,7 @@ public class ApiClient {
             Call<Void>cambiarClave(@Header("Authorization")String token,
                                    @Field("currentPassword")String claveVieja,
                                    @Field("newPassword")String claveNueva);
+            @PUT("api/Inmuebles/actualizar")
+            Call<Inmueble> actualizarInmueble(@Header("Authorization")String token,@Body Inmueble inmueble);
         }
 }

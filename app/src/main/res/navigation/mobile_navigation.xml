@@ -19,7 +19,11 @@
         android:id="@+id/nav_gallery"
         android:name="com.principal.inmobiliariaconlaraandroid.ui.inmuebles.GalleryFragment"
         android:label="@string/inmuebles"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_nav_gallery_to_detalleInmuebleFragment"
+            app:destination="@id/detalleInmuebleFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
@@ -49,5 +53,14 @@
         <action
             android:id="@+id/action_cambiarClaveFragment_to_nav_home"
             app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleInmuebleFragment"
+        android:name="com.principal.inmobiliariaconlaraandroid.ui.inmuebles.DetalleInmuebleFragment"
+        android:label="Inmueble Seleccionado"
+        tools:layout="@layout/fragment_detalle_inmueble" >
+        <action
+            android:id="@+id/action_detalleInmuebleFragment_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
     </fragment>
 </navigation>
