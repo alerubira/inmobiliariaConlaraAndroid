@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.inmuebles.GalleryFragment">
+    tools:context=".ui.inmuebles.ListaInmueblesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvListaInmuebles"
@@ -14,4 +14,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCrearInmueble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/crear_inmueble"
+        android:src="@drawable/baseline_add_24"
+        app:backgroundTint="@color/teal_700"
+        app:tint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

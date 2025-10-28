@@ -17,12 +17,15 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.principal.inmobiliariaconlaraandroid.ui.inmuebles.GalleryFragment"
+        android:name="com.principal.inmobiliariaconlaraandroid.ui.inmuebles.ListaInmueblesFragment"
         android:label="@string/inmuebles"
-        tools:layout="@layout/fragment_gallery" >
+        tools:layout="@layout/fragment_lista_inmuebles" >
         <action
             android:id="@+id/action_nav_gallery_to_detalleInmuebleFragment"
             app:destination="@id/detalleInmuebleFragment" />
+        <action
+            android:id="@+id/action_nav_gallery_to_crearInmuebleFragment"
+            app:destination="@id/crearInmuebleFragment" />
     </fragment>
 
     <fragment
@@ -61,6 +64,15 @@
         tools:layout="@layout/fragment_detalle_inmueble" >
         <action
             android:id="@+id/action_detalleInmuebleFragment_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
+    </fragment>
+    <fragment
+        android:id="@+id/crearInmuebleFragment"
+        android:name="com.principal.inmobiliariaconlaraandroid.ui.inmuebles.CrearInmuebleFragment"
+        android:label="@string/crear_inmueble"
+        tools:layout="@layout/fragment_crear_inmueble" >
+        <action
+            android:id="@+id/action_crearInmuebleFragment_to_nav_gallery"
             app:destination="@id/nav_gallery" />
     </fragment>
 </navigation>

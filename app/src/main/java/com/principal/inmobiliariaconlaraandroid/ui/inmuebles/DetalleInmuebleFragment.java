@@ -71,6 +71,7 @@ public class DetalleInmuebleFragment extends Fragment {
         mViewModel.obtenerInmueble(getArguments());
         binding.checkDisponible.setOnClickListener(v ->
                 mViewModel.actualizarInmueble(binding.checkDisponible.isChecked()));
+
         return root;
     }
 

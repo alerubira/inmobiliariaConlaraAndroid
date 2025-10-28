@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.principal.inmobiliariaconlaraandroid.clases.Inmueble;
 import com.principal.inmobiliariaconlaraandroid.request.ApiClient;
@@ -18,12 +17,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class GalleryViewModel extends AndroidViewModel {
+public class ListaInmueblesViewModel extends AndroidViewModel {
 
     private final MutableLiveData<String> mText = new MutableLiveData<>();
     private final MutableLiveData<List<Inmueble>> mInmueble = new MutableLiveData<>();
 
-    public GalleryViewModel(@NonNull Application application) {
+    public ListaInmueblesViewModel(@NonNull Application application) {
         super(application);
         leerInmuebles();
     }
@@ -36,9 +35,7 @@ public class GalleryViewModel extends AndroidViewModel {
         return mInmueble;
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
+
 
     public void leerInmuebles(){
         String token = ApiClient.leerToken(getApplication());
@@ -51,13 +48,15 @@ public class GalleryViewModel extends AndroidViewModel {
                     mInmueble.postValue(response.body());
                 } else {
                     //cambiar por mutable y poner en el observer un dialogo
-                    Toast.makeText(getApplication(), "No hay inmuebles disponibles: "+response.message(), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getApplication(), "No hay inmuebles disponibles: "+response.message(), Toast.LENGTH_SHORT).show();
+                    mText.postValue("No hay inmuebles disponibles");
                 }
             }
 
             @Override
             public void onFailure(Call<List<Inmueble>> call, Throwable t) {
-                Toast.makeText(getApplication(), "Error en servidor: "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplication(), "Error en servidor: "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                mText.postValue("Error interno del servidor: "+t.getMessage());
             }
         });
     }

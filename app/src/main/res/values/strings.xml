@@ -17,4 +17,5 @@
     <string name="contratos">Contratos</string>
     <string name="logout">Logout</string>
     <string name="cambiar_contrasena">Cambiar Contraseña</string>
+    <string name="crear_inmueble">Crear Inmueble</string>
 </resources>
