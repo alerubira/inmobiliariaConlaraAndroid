@@ -1,4 +1,4 @@
-package com.principal.inmobiliariaconlaraandroid.ui.inmuebles;
+package com.principal.inmobiliariaconlaraandroid.ui.Inqilinos;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,30 +17,33 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.principal.inmobiliariaconlaraandroid.R;
 import com.principal.inmobiliariaconlaraandroid.clases.Inmueble;
+import com.principal.inmobiliariaconlaraandroid.clases.Inquilino;
 import com.principal.inmobiliariaconlaraandroid.request.ApiClient;
+import com.principal.inmobiliariaconlaraandroid.ui.inmuebles.InmuebleAdapter;
 
 import java.util.List;
 
-public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.InmuebleViewHolder>{
+public class InquilinosAdapter extends RecyclerView.Adapter<InquilinosAdapter.InquilinosViewHolder>{
     private List<Inmueble> lista;
     private Context context;
 
-    public InmuebleAdapter(List<Inmueble> lista, Context context) {
+    public InquilinosAdapter(List<Inmueble> lista, Context context) {
         this.lista = lista;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public InmuebleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_inmueble, parent, false);
-        return new InmuebleViewHolder(vista);
+    public InquilinosAdapter.InquilinosViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_inmueble_inquilinos, parent, false);
+        return new InquilinosAdapter.InquilinosViewHolder(vista);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull InmuebleViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull InquilinosAdapter.InquilinosViewHolder holder, int position) {
         //String urlBase = "https://inmobiliariaulp-amb5hwfqaraweyga.canadacentral-01.azurewebsites.net";
         Inmueble i = lista.get(position);
+
         holder.tvDireccion.setText(i.getDireccion());
         holder.tvTipo.setText(i.getTipo());
         holder.tvPrecio.setText("$"+String.valueOf(i.getValor()));
@@ -52,7 +55,7 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.Inmueb
         holder.cardView.setOnClickListener(v ->{
             Bundle bundle = new Bundle();
             bundle.putSerializable("inmueble", i);
-            Navigation.findNavController((Activity)v.getContext(), R.id.nav_host_fragment_content_main).navigate(R.id.detalleInmuebleFragment, bundle);
+            Navigation.findNavController((Activity)v.getContext(), R.id.nav_host_fragment_content_main).navigate(R.id.inquilinoFragment, bundle);
 
         });
     }
@@ -62,20 +65,21 @@ public class InmuebleAdapter extends RecyclerView.Adapter<InmuebleAdapter.Inmueb
         return lista.size();
     }
 
-    public class InmuebleViewHolder extends RecyclerView.ViewHolder{
+    public class InquilinosViewHolder extends RecyclerView.ViewHolder{
         private TextView tvDireccion, tvTipo, tvPrecio;
         private ImageView imgInmueble;
         private CardView cardView;
 
 
 
-        public InmuebleViewHolder(@NonNull View itemView) {
+        public InquilinosViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDireccion = itemView.findViewById(R.id.tvDireccionII);
             tvTipo = itemView.findViewById(R.id.tvTipoII);
             tvPrecio = itemView.findViewById(R.id.tvPrecioII);
             imgInmueble = itemView.findViewById(R.id.imgInmuebleI);
-            cardView=itemView.findViewById(R.id.idCard);
+            cardView=itemView.findViewById(R.id.idCardII);
         }
     }
+
 }

@@ -64,7 +64,7 @@ public class DetalleInmuebleFragment extends Fragment {
                         .load(ApiClient.URLBASE+inmueble.getImagen())
                         .placeholder(R.drawable.casa)
                         .error("null")
-                        .into(binding.imgInmueble);
+                        .into(binding.imgInmuebleI);
                 binding.checkDisponible.setChecked(inmueble.isDisponible());
             }
         });

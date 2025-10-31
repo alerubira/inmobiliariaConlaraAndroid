@@ -17,7 +17,7 @@
         app:contentPadding="10dp">
 
         <TextView
-            android:id="@+id/tvDireccion"
+            android:id="@+id/tvDireccionII"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvTipo"
+            android:id="@+id/tvTipoII"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -35,10 +35,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDireccion" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDireccionII" />
 
         <TextView
-            android:id="@+id/tvPrecio"
+            android:id="@+id/tvPrecioII"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -46,17 +46,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTipo" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTipoII" />
 
         <ImageView
-            android:id="@+id/imgInmueble"
+            android:id="@+id/imgInmuebleI"
             android:layout_width="250px"
             android:layout_height="200px"
             android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvPrecio"
+            app:layout_constraintTop_toBottomOf="@+id/tvPrecioII"
             tools:srcCompat="@tools:sample/avatars" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

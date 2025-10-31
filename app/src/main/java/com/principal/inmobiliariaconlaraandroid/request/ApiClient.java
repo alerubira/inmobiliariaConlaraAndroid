@@ -5,7 +5,9 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.principal.inmobiliariaconlaraandroid.clases.Contrato;
 import com.principal.inmobiliariaconlaraandroid.clases.Inmueble;
+import com.principal.inmobiliariaconlaraandroid.clases.Pago;
 import com.principal.inmobiliariaconlaraandroid.clases.Propietario;
 
 import java.util.List;
@@ -25,6 +27,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 public class ApiClient {
     // IP de tu PC + puerto donde corre la API HTTP
@@ -63,7 +66,14 @@ public class ApiClient {
         SharedPreferences sp=context.getSharedPreferences("token.xml",Context.MODE_PRIVATE);
         return sp.getString("token",null);
     }
-        public interface InmmobiliariaSetvice{
+    public static void borrarToken(Context context) {
+        SharedPreferences sp = context.getSharedPreferences("token.xml", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.remove("token"); // elimina solo la clave "token"
+        editor.apply();
+    }
+
+    public interface InmmobiliariaSetvice{
             @FormUrlEncoded
             @POST("api/Propietarios/login")
             Call<String> login(@Field("Usuario") String u, @Field("Clave") String c);
@@ -91,5 +101,21 @@ public class ApiClient {
                                          @Part MultipartBody.Part imagen,
                                          @Part ("inmueble")RequestBody inmueble
             );
-        }
+            @GET("api/Inmuebles/GetContratoVigente")
+            Call<List<Inmueble>> obtenerInmueblesConContratoVigente(
+                    @Header("Authorization") String token
+            );
+
+        @GET("api/contratos/inmueble/{id}")
+        Call<Contrato> obtenerContrato(
+                @Header("Authorization") String token,
+                @Path("id") int idInmueble
+        );
+        @GET("api/pagos/contrato/{id}")
+        Call <List<Pago>> obtenerPagos(
+                @Header("Authorization") String token,
+                @Path("id") int idContrato
+        );
+
+    }
 }
