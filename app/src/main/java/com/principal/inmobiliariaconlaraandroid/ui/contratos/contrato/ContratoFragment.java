@@ -1,4 +1,4 @@
-package com.principal.inmobiliariaconlaraandroid.ui.contratos;
+package com.principal.inmobiliariaconlaraandroid.ui.contratos.contrato;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -14,20 +14,20 @@ import android.view.ViewGroup;
 
 import com.principal.inmobiliariaconlaraandroid.R;
 
-public class ContratosFragment extends Fragment {
+public class ContratoFragment extends Fragment {
 
-    private ContratosViewModel mViewModel;
-    private FragmenContratosBinding;
-
-    public static ContratosFragment newInstance() {
-        return new ContratosFragment();
+    public static ContratoFragment newInstance() {
+        return new ContratoFragment();
     }
+
+    private ContratoViewModel mViewModel;
+    private FragmentContratoBinding=binding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        mViewModel = new ViewModelProvider(this).get(ContratosViewModel.class);
-        binding= FragmentContratosBinding.inflate(inflater, container, false);
+        mViewModel = new ViewModelProvider(this).get(ContratoViewModel.class);
+        binding= FragmentContratoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
 
@@ -38,7 +38,7 @@ public class ContratosFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(ContratosViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(ContratoViewModel.class);
         // TODO: Use the ViewModel
     }
 
