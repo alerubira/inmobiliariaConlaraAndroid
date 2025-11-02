@@ -95,19 +95,16 @@
     <fragment
         android:id="@+id/contratoFragment"
         android:name="com.principal.inmobiliariaconlaraandroid.ui.contratos.contrato.ContratoFragment"
-        android:label="fragment_contrato"
+        android:label="Contrato"
         tools:layout="@layout/fragment_contrato" >
         <action
             android:id="@+id/action_contratoFragment_to_contratosFragment"
             app:destination="@id/contratosFragment" />
-        <action
-            android:id="@+id/action_contratoFragment_to_pagosFragment"
-            app:destination="@id/pagosFragment" />
     </fragment>
     <fragment
         android:id="@+id/pagosFragment"
         android:name="com.principal.inmobiliariaconlaraandroid.ui.contratos.pagos.PagosFragment"
-        android:label="fragment_pagos"
+        android:label="Detalle de Pagos"
         tools:layout="@layout/fragment_pagos" >
         <action
             android:id="@+id/action_pagosFragment_to_contratoFragment"

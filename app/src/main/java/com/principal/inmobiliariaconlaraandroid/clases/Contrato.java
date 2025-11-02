@@ -19,8 +19,9 @@ public class Contrato implements Serializable {
     private int idInquilino;
     private int idInmueble;
     private Inquilino inquilino;
+    private Inmueble inmueble;
 
-    public Contrato(Date fechaInicio, int idContrato, Date fechaFinalizacion, double montoAlquiler, boolean estado, int idInquilino, int idInmueble,Inquilino inquilino) {
+    public Contrato(Date fechaInicio, int idContrato, Date fechaFinalizacion, double montoAlquiler, boolean estado, int idInquilino, int idInmueble,Inquilino inquilino,Inmueble inmueble) {
         this.fechaInicio = fechaInicio;
         this.idContrato = idContrato;
         this.fechaFinalizacion = fechaFinalizacion;
@@ -29,6 +30,7 @@ public class Contrato implements Serializable {
         this.idInquilino = idInquilino;
         this.idInmueble = idInmueble;
         this.inquilino=inquilino;
+        this.inmueble=inmueble;
     }
 
     public int getIdContrato() {
@@ -93,5 +95,13 @@ public class Contrato implements Serializable {
 
     public void setInquilino(Inquilino inquilino) {
         this.inquilino = inquilino;
+    }
+
+    public Inmueble getInmueble() {
+        return inmueble;
+    }
+
+    public void setInmueble(Inmueble inmueble) {
+        this.inmueble = inmueble;
     }
 }
